@@ -11,16 +11,9 @@
   addEventListener("scroll", marcarBarra, { passive: true });
   marcarBarra();
 
-  /* ---------- Donaciones ----------
-     La sección y el enlace "Apoya" solo aparecen cuando las tres ligas de
-     Mercado Pago están puestas. Con ?vista-previa se ven para revisarlas. */
+  /* ---------- Donaciones: corazones al tocar ---------- */
   const ligas = [...document.querySelectorAll("[data-liga]")];
-  const ligasListas = ligas.length > 0 && ligas.every(a => /^https:\/\//.test(a.getAttribute("href") || ""));
-  if (ligasListas || new URLSearchParams(location.search).has("vista-previa")) {
-    document.querySelectorAll("[data-solo-con-ligas]").forEach(el => { el.hidden = false; });
-  }
-  ligas.forEach(a => a.addEventListener("click", e => {
-    if (!ligasListas) e.preventDefault();
+  ligas.forEach(a => a.addEventListener("click", () => {
     if (quieto()) return;
     for (let k = 0; k < 3; k++) {
       const c = document.createElement("span");
