@@ -2,22 +2,201 @@
 <html lang="es-MX">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Al Corte</title>
-<meta name="description" content="Al Corte: tus gastos, tarjetas y meses sin intereses en tu iPhone.">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Al Corte · Sabe cuánto te queda antes del corte</title>
+<meta name="description" content="App para iPhone que junta tus gastos, tarjetas de crédito, meses sin intereses y pagos fijos, y te dice cuánto dinero te queda de verdad. Gratis, sin anuncios y sin crear cuenta.">
+<meta name="theme-color" content="#EEF0F2" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#0E1013" media="(prefers-color-scheme: dark)">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="es_MX">
+<meta property="og:title" content="Al Corte · Sabe cuánto te queda antes del corte">
+<meta property="og:description" content="Tus gastos, tarjetas, meses sin intereses y pagos fijos en un solo lugar. Gratis y sin anuncios.">
 <link rel="icon" href="marca.svg">
 <link rel="stylesheet" href="estilo.css">
+<link rel="stylesheet" href="inicio.css">
+<link rel="preload" as="image" href="img/inicio.webp" type="image/webp" media="(prefers-color-scheme: light)">
+<link rel="preload" as="image" href="img/inicio-oscuro.webp" type="image/webp" media="(prefers-color-scheme: dark)">
+<script>document.documentElement.classList.add("js")</script>
+<script src="inicio.js" defer></script>
 </head>
-<body>
-<main>
-<header><img src="marca.svg" alt=""><a href="./">Al Corte</a></header>
-<h1>Sabe cuánto te queda antes del corte.</h1>
-<p>Al Corte es una app para iPhone que junta tus gastos, tus tarjetas de crédito, tus meses sin intereses y tus pagos fijos, y te dice cuánto dinero te queda de verdad. Es gratis, no tiene anuncios y tus datos se quedan en tu iPhone y en tu iCloud.</p>
-<div class="tarjeta">
-<p><a href="soporte/"><strong>Soporte</strong></a>: preguntas frecuentes y cómo escribirnos.</p>
-<p><a href="privacidad/"><strong>Política de privacidad</strong></a>: qué pasa con tus datos (spoiler: nada sale de tu iPhone y tu iCloud).</p>
-</div>
-<footer>Al Corte · Hecha en México</footer>
+<body class="inicio">
+
+<header class="barra">
+  <div class="barra-dentro">
+  <a class="logo" href="./"><img src="marca.svg" alt="" width="30" height="30">Al Corte</a>
+  <nav aria-label="Secciones">
+    <a href="#app">La app</a>
+    <a href="#por-que">Por qué</a>
+    <a href="#apoya" data-solo-con-ligas hidden>Apoya</a>
+    <a href="soporte/">Soporte</a>
+  </nav>
+  </div>
+</header>
+
+<main id="contenido">
+
+  <section class="hero">
+    <div class="hero-texto">
+      <p class="ceja">App para iPhone · Hecha en México</p>
+      <h1>Sabe cuánto te queda antes del corte.</h1>
+      <p class="entrada">Tus gastos, tarjetas de crédito, meses sin intereses y pagos fijos en un solo lugar. Al Corte te dice cuánto dinero te queda de verdad y qué tienes que pagar pronto.</p>
+      <div class="acciones">
+        <span class="boton-tienda pronto">Muy pronto en el App Store</span>
+      </div>
+      <ul class="sellos" aria-label="Lo básico">
+        <li>Gratis</li>
+        <li>Sin anuncios</li>
+        <li>Sin crear cuenta</li>
+      </ul>
+    </div>
+    <div class="hero-telefono">
+      <div class="flota">
+        <div class="inclina" id="telefono">
+          <picture>
+            <source srcset="img/inicio-oscuro.webp" media="(prefers-color-scheme: dark)" width="600" height="1304">
+            <img class="pantalla" src="img/inicio.webp" width="720" height="1565" fetchpriority="high"
+                 alt="Pantalla de Inicio de Al Corte: lo que te queda este mes, lo que tienes, lo que está por entrar, lo que tienes que pagar y tus próximos pagos.">
+          </picture>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="cuenta revelar" aria-labelledby="t-cuenta">
+    <h2 id="t-cuenta">La pregunta de cada mes: ¿me alcanza?</h2>
+    <p class="sub">Al Corte suma lo que tienes y lo que te va a entrar, le resta lo que ya debes (tarjetas, cargos fijos y meses sin intereses) y te da un solo número.</p>
+    <div class="ecuacion">
+      <div class="termino"><span>Tienes</span><b class="monto" data-contar="6200">$6,200</b></div>
+      <i aria-hidden="true">+</i>
+      <div class="termino"><span>Por entrar</span><b class="monto positivo" data-contar="22000" data-signo="+">+$22,000</b></div>
+      <i aria-hidden="true">−</i>
+      <div class="termino"><span>Por pagar</span><b class="monto" data-contar="19440">$19,440</b></div>
+    </div>
+    <div class="resultado">
+      <span>Te queda este mes</span>
+      <strong class="monto grande" data-contar="8760" data-centavos>$8,760<span class="centavos">.00</span></strong>
+    </div>
+    <p class="nota">Ejemplo con datos inventados.</p>
+  </section>
+
+  <section id="app" class="galeria revelar" aria-labelledby="t-app">
+    <h2 id="t-app">Mira la app por dentro</h2>
+    <p class="sub">Sin descargar nada. Arrastra o usa las flechas.</p>
+
+    <div class="carrusel" id="carrusel" role="region" aria-roledescription="carrusel" aria-label="Capturas de Al Corte" tabindex="0">
+      <ul class="pista">
+        <li class="toma" data-titulo="Tus tarjetas" data-detalle="Cuánto pagar en cada una y para cuándo.">
+          <img src="img/tarjetas.webp" width="600" height="1304" loading="lazy" alt="Pestaña Pagos con tres tarjetas: lo que falta pagar en cada una y en cuántos días vence.">
+        </li>
+        <li class="toma" data-titulo="Cada tarjeta, revisada" data-detalle="Te avisa si el banco trae algo que no registraste.">
+          <img src="img/detalle-tarjeta.webp" width="600" height="1304" loading="lazy" alt="Detalle de una tarjeta: estado de cuenta, revisión del periodo y aviso de compras que faltan por registrar.">
+        </li>
+        <li class="toma" data-titulo="Meses sin intereses" data-detalle="Cuánto te falta y cuándo terminas cada compra.">
+          <img src="img/msi.webp" width="600" height="1304" loading="lazy" alt="Lista de compras a meses sin intereses con lo que falta pagar y el mes en que terminan.">
+        </li>
+        <li class="toma" data-titulo="Calendario de pagos" data-detalle="Cortes, fechas límite, ingresos y cargos fijos.">
+          <img src="img/calendario.webp" width="600" height="1304" loading="lazy" alt="Calendario del mes con fechas límite, cortes, ingresos y cargos fijos, y la lista de lo próximo.">
+        </li>
+        <li class="toma" data-titulo="Registrar un gasto" data-detalle="Monto, categoría y listo. Toma segundos.">
+          <img src="img/registrar.webp" width="600" height="1304" loading="lazy" alt="Pantalla para registrar un gasto con teclado numérico, categorías y forma de pago.">
+        </li>
+        <li class="toma" data-titulo="Resumen del mes" data-detalle="A dónde se fue el dinero, por categoría.">
+          <img src="img/resumen.webp" width="600" height="1304" loading="lazy" alt="Resumen del mes con el gasto por categoría.">
+        </li>
+        <li class="toma" data-titulo="Ahorros" data-detalle="Apartados con meta y cuánto llevas.">
+          <img src="img/ahorros.webp" width="600" height="1304" loading="lazy" alt="Ahorros con apartados, metas y avance.">
+        </li>
+        <li class="toma" data-titulo="Modo oscuro" data-detalle="Se adapta a tu iPhone.">
+          <img src="img/inicio-oscuro.webp" width="600" height="1304" loading="lazy" alt="Pantalla de Inicio en modo oscuro.">
+        </li>
+      </ul>
+    </div>
+
+    <div class="carrusel-pie">
+      <button class="flecha" type="button" id="anterior" aria-label="Captura anterior">
+        <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="M15 5l-7 7 7 7" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </button>
+      <div class="leyenda" id="leyenda"><b>Tus tarjetas</b><span>Cuánto pagar en cada una y para cuándo.</span></div>
+      <button class="flecha" type="button" id="siguiente" aria-label="Captura siguiente">
+        <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="M9 5l7 7-7 7" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </button>
+    </div>
+    <div class="puntos" id="puntos"></div>
+  </section>
+
+  <section class="extras revelar" aria-labelledby="t-extras">
+    <h2 id="t-extras">Y además</h2>
+    <ul class="mosaicos">
+      <li style="--i:0">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 3h7l5 5v13H7z M14 3v5h5 M10 13h6 M10 17h6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" stroke-linecap="round"/></svg>
+        <b>Lee tu estado de cuenta</b>
+        <span>Elige el PDF que te manda el banco y la app llena los datos. Lo que no pueda leer lo capturas a mano.</span>
+      </li>
+      <li style="--i:1">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 16V11a6 6 0 0112 0v5l1.5 2h-15z M10 20.5a2 2 0 004 0" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" stroke-linecap="round"/></svg>
+        <b>Te avisa antes de pagar</b>
+        <span>Recordatorios antes de cada fecha límite y cada cargo fijo.</span>
+      </li>
+      <li style="--i:2">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l7 3v6c0 4.5-3 7.5-7 9-4-1.5-7-4.5-7-9V6z M9 12l2 2 4-4" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" stroke-linecap="round"/></svg>
+        <b>Tus datos son tuyos</b>
+        <span>No conecta tu banco ni te pide cuenta. Todo vive en tu iPhone y en tu iCloud.</span>
+      </li>
+      <li style="--i:3">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 4H5a1 1 0 00-1 1v2 M17 4h2a1 1 0 011 1v2 M7 20H5a1 1 0 01-1-1v-2 M17 20h2a1 1 0 001-1v-2 M9 9v1 M15 9v1 M12 9v4h-1 M9.5 16a4 4 0 005 0" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" stroke-linecap="round"/></svg>
+        <b>Bloqueo con Face ID</b>
+        <span>Si quieres, nadie más abre la app.</span>
+      </li>
+      <li style="--i:4">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 18a4.5 4.5 0 01-.6-8.96A6 6 0 0118 9.5a4.25 4.25 0 01-.5 8.5z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg>
+        <b>Respaldo en tu iCloud</b>
+        <span>Si cambias de iPhone, tus datos te siguen.</span>
+      </li>
+      <li style="--i:5">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8.5" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M6 18L18 6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+        <b>Sin anuncios</b>
+        <span>Ni anuncios, ni rastreo, ni funciones de pago.</span>
+      </li>
+    </ul>
+  </section>
+
+  <section id="por-que" class="historia revelar" aria-labelledby="t-historia">
+    <h2 id="t-historia">Por qué existe</h2>
+    <div class="historia-cuerpo">
+      <div class="historia-texto">
+        <p>Al Corte empezó como una nota en el celular: la fecha de corte de cada tarjeta, la fecha límite y cuánto debía en cada una. Servía para no atrasarme, pero no me decía lo más importante: <strong>a dónde se iba el dinero y si me iba a alcanzar.</strong></p>
+        <p>Quería abrir algo y saber, en un segundo, cuánto me queda este mes y qué tengo que pagar pronto. Así nació Al Corte.</p>
+      </div>
+      <ul class="principios">
+        <li><b>Un número primero.</b> Lo que importa es cuánto te queda; todo lo demás es el desglose.</li>
+        <li><b>Pensada para México.</b> Fechas de corte y límite, meses sin intereses, pagos bimestrales como la luz.</li>
+        <li><b>Rápida.</b> Registrar un gasto toma segundos, para hacerlo en el momento.</li>
+        <li><b>Privada.</b> Sin cuenta, sin conectar tu banco y sin anuncios.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section id="apoya" class="apoya revelar" aria-labelledby="t-apoya" data-solo-con-ligas hidden>
+    <div class="apoya-caja">
+      <svg class="corazon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20.5s-7.5-4.6-9.2-9.4C1.7 7.9 3.8 4.5 7.2 4.5c2 0 3.6 1.1 4.8 2.8 1.2-1.7 2.8-2.8 4.8-2.8 3.4 0 5.5 3.4 4.4 6.6-1.7 4.8-9.2 9.4-9.2 9.4z" fill="currentColor"/></svg>
+      <h2 id="t-apoya">¿Te sirve Al Corte?</h2>
+      <p>Es gratis y sin anuncios. Si te ayuda a llegar mejor al corte, puedes invitarme algo para seguir mejorándola.</p>
+      <div class="montos">
+        <a class="donar" href="" data-liga target="_blank" rel="noopener"><b>$19</b><span>Un café</span></a>
+        <a class="donar destacado" href="" data-liga target="_blank" rel="noopener"><b>$49</b><span>Una comida</span></a>
+        <a class="donar" href="" data-liga target="_blank" rel="noopener"><b>$99</b><span>Gran apoyo</span></a>
+      </div>
+      <p class="letra-chica">El pago se hace en Mercado Pago: con tarjeta, saldo de Mercado Pago o en efectivo en OXXO. Es una aportación voluntaria y no desbloquea nada en la app.</p>
+    </div>
+  </section>
+
 </main>
+
+<footer class="pie">
+  <a class="logo" href="./"><img src="marca.svg" alt="" width="24" height="24">Al Corte</a>
+  <nav aria-label="Ayuda"><a href="soporte/">Soporte</a><a href="privacidad/">Privacidad</a></nav>
+  <p>Hecha en México por <a href="https://luislpz.xyz">Luis López</a>.</p>
+</footer>
+
 </body>
 </html>
